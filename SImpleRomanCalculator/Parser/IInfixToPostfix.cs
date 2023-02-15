@@ -2,6 +2,6 @@
 {
     public interface IInfixToPostfix
     {
-        abstract List<string> Transform(List<string> infixInput);
+         List<string> Transform(List<string> infixInput);
     }
 }

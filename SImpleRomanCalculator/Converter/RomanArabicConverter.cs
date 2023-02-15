@@ -35,7 +35,6 @@ namespace SimpleRomanCalculator.Converter
                 {
                     if (strings[i].IndexOfAny(new char[] { '*', '+', '-', '\\', '(', ')' }) == -1)
                     {
-
                         ushort? number = RomanToArabic(strings[i]);
                         if (number.HasValue) {
                             strings[i] = number.ToString() ;
@@ -75,12 +74,11 @@ namespace SimpleRomanCalculator.Converter
             }
         }
 
-
         public string ArabicToRoman(ushort u)
         {
-            if (u < 0 || u > 3999)
+            if (u > 3999)
             {
-                throw new ArgumentException("The result is out of range for Roman digits(0-3999)");
+                throw new ArgumentException("The result is out of range for Roman digits(1-3999)");
             }
             string result = "";
             while (u > 0)
@@ -97,7 +95,6 @@ namespace SimpleRomanCalculator.Converter
             }
             return result;
         }
-
         public bool IsRomanDigit(string s)
         {
             Regex regex = new Regex(ROMANPATTERN);

@@ -1,6 +1,6 @@
 ﻿namespace SimpleRomanCalculator
 {
-    public interface Calculator
+    public interface ICalculator
     {
        string Evaluate(string input);
     }

@@ -2,6 +2,6 @@
 {
     public interface IPostfixToResult
     {
-        ushort Calculate(List<string> postfixString);
+        ushort Calculate(List<string> postfixInput);
     }
 }

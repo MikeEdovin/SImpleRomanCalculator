@@ -7,7 +7,6 @@
     {
         private Stack<string> stack = new Stack<string>();
 
-
         public List<string> Transform(List<string> infixInput)
         {
             if (infixInput is null||infixInput.Count == 0)
@@ -81,7 +80,6 @@
             stack.Push(opThis);
 
         }
-
 
         private void GotClosingBracket(string bracket, List<string> output)
         {

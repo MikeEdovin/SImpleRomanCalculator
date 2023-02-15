@@ -1,9 +1,9 @@
 ﻿namespace SimpleRomanCalculator.Converter
 {
-    internal interface IRomanArabicConverter
+    public interface IRomanArabicConverter
     {
-        abstract List<string> ConvertInputToArabic(string roman);
-        abstract ushort? RomanToArabic(string s);
-        abstract string ArabicToRoman(ushort u);
+        List<string> ConvertInputToArabic(string roman);
+        ushort? RomanToArabic(string s);
+        string ArabicToRoman(ushort u);
     }
 }

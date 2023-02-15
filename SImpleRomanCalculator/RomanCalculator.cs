@@ -3,32 +3,26 @@ using SimpleRomanCalculator.Parser;
 
 namespace SimpleRomanCalculator
 {
-    public class RomanCalculator: Calculator
+    public class RomanCalculator: ICalculator
     {
-        public RomanCalculator() { 
-        }
-        IInfixToPostfix itp=new InfixToPostfix();
-        RomanArabicConverter converter = new RomanArabicConverter();
-        IPostfixToResult ptr = new PostfixToResult();
+        IRomanArabicConverter converter;
+        IInfixToPostfix itp;
+        IPostfixToResult ptr;
 
-        public string Evaluate(string input)
+        public RomanCalculator(IRomanArabicConverter converter, 
+            IInfixToPostfix itp,
+            IPostfixToResult ptr) { 
+            this.converter = converter;
+            this.itp = itp;
+            this.ptr = ptr;
+        }
+        
+        public string Evaluate(string input) 
         {
-            try
-            {
                 List<string> arabicInput = converter.ConvertInputToArabic(input);
                 List<string> postfixInput = itp.Transform(arabicInput);
                 ushort result = ptr.Calculate(postfixInput);
                 return converter.ArabicToRoman(result);
-            }
-            catch(ArgumentException e)
-            {
-                return e.Message;
-            }
-           
-           
-
-           
-            
         }
     }
 }
