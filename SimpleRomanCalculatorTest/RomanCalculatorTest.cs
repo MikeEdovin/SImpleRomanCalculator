@@ -50,13 +50,22 @@ namespace SimpleRomanCalculatorTest
             string empty = "";
             string wrongInput1 = "(MMMMDCCXXIV - MMCCXXIX) * II";
             List<string> wrongInput2 = (new string[] { "1000", "2001", "-" }).ToList();
+            List<string> convertedWrongInput2 = (new string[] {"(", "1000","-", "2001",")"}).ToList();
             string wrongInput3 = "(M-MMI)";
-            string wrongInput4 = "(MMM+MMM";
+            string wrongInput4 = "(MMM+MMM)";
+            List<string> convertedWrongInput4 = (new string[] { "(", "3000", "+", "3000", ")" }).ToList();
+            List<string> postfixWrongInput4 = (new string[] { "3000", "3000", "+" }).ToList();
 
             mockRomanArabicConverter.ConvertInputToArabic(empty).Throws(new ArgumentException());
             mockRomanArabicConverter.ConvertInputToArabic(wrongInput1).Throws(new ArgumentException());
             mockPostfixToResult.Calculate(wrongInput2).Throws(new ArgumentException());
+            mockRomanArabicConverter.ConvertInputToArabic(wrongInput3).Returns(convertedWrongInput2);
+            mockInfixToPostfix.Transform(convertedWrongInput2).Returns(wrongInput2);
             mockRomanArabicConverter.ArabicToRoman(6000).Throws(new ArgumentException());
+
+            mockRomanArabicConverter.ConvertInputToArabic(wrongInput4).Returns(convertedWrongInput4);
+            mockInfixToPostfix.Transform(convertedWrongInput4).Returns(postfixWrongInput4);
+            mockPostfixToResult.Calculate(postfixWrongInput4).Returns((ushort)6000);
 
 
             ICalculator calculator =
