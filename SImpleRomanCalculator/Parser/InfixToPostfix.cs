@@ -1,8 +1,6 @@
 ﻿namespace SimpleRomanCalculator.Parser
 {
 
-
-
     public class InfixToPostfix: IInfixToPostfix
     {
         private Stack<string> stack = new Stack<string>();
