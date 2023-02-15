@@ -1,7 +1,7 @@
 # RomanCalculator
 
 Hi there!
-This is a simple calculator that return the result of arithmetic operations with Roman numbers.
+This is a simple calculator that returns the result of arithmetic operations with Roman numbers.
 Input format: string with the expression.
 Output format:string with result.
 It has some limitations:
