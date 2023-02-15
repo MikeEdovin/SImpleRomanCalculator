@@ -2,7 +2,7 @@
 
 namespace SimpleRomanCalculator.Converter
 {
-    
+
     public class RomanArabicConverter:IRomanArabicConverter
     {
         private const string DELIMETERS = @"\s*([-+/*()])\s*";
