@@ -2,6 +2,9 @@
 
 Hi there!
 This is a simple calculator that returns the result of arithmetic operations with Roman numbers.
+Main class RomanCalculator need three dependencies-IRomanArabicConverter,IInfixToPostfix and IpostfixToResult.
+You can use built-in realisations or create your own.
+Main method - string Evaluate(string input).
 Input format: string with the expression.
 Output format:string with result.
 It has some limitations:
